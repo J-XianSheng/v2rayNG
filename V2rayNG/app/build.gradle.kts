@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar","*.jar"))))
+    compileOnly(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar","*.jar"))))
     testImplementation("junit:junit:4.13.2")
 
     // Androidx
