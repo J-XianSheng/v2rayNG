@@ -8,11 +8,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.v2ray.ang"
         minSdk = 21
         targetSdk = 34
-        versionCode = 550
-        versionName = "1.8.18"
         multiDexEnabled = true
     }
 
@@ -46,31 +43,6 @@ android {
             isEnable = true
             isUniversalApk = true
         }
-    }
-
-    applicationVariants.all {
-        val variant = this
-        val versionCodes =
-            mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
-
-        variant.outputs
-            .map { it as com.android.build.gradle.internal.api.ApkVariantOutputImpl }
-            .forEach { output ->
-                val abi = if (output.getFilter("ABI") != null)
-                    output.getFilter("ABI")
-                else
-                    "all"
-
-                output.outputFileName = "v2rayNG_${variant.versionName}_${abi}.apk"
-                if(versionCodes.containsKey(abi))
-                {
-                    output.versionCodeOverride = (1000000 * versionCodes[abi]!!).plus(variant.versionCode)
-                }
-                else
-                {
-                    return@forEach
-                }
-            }
     }
 
     buildFeatures {
