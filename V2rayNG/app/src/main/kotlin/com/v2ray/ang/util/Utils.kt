@@ -349,7 +349,7 @@ object Utils {
         val url = URL(urlStr)
         val conn = url.openConnection()
         conn.setRequestProperty("Connection", "close")
-        conn.setRequestProperty("User-agent", "v2rayNG/${BuildConfig.VERSION_NAME}")
+        conn.setRequestProperty("User-agent", "v2rayNG/1.8.18")
         url.userInfo?.let {
             conn.setRequestProperty("Authorization",
                 "Basic ${encode(urlDecode(it))}")
