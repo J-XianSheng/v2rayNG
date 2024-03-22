@@ -104,7 +104,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         binding.navView.setNavigationItemSelectedListener(this)
-        "v${BuildConfig.VERSION_NAME} (${SpeedtestUtil.getLibVersion()})".also { binding.version.text = it }
+        "v1.8.18 (${SpeedtestUtil.getLibVersion()})".also { binding.version.text = it }
 
         setupViewModel()
         copyAssets()
