@@ -26,9 +26,9 @@ class AngApplication : MultiDexApplication(), Configuration.Provider {
 //        LeakCanary.install(this)
 
         val defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        firstRun = defaultSharedPreferences.getInt(PREF_LAST_VERSION, 0) != BuildConfig.VERSION_CODE
+        firstRun = defaultSharedPreferences.getInt(PREF_LAST_VERSION, 0) != 550
         if (firstRun)
-            defaultSharedPreferences.edit().putInt(PREF_LAST_VERSION, BuildConfig.VERSION_CODE).apply()
+            defaultSharedPreferences.edit().putInt(PREF_LAST_VERSION, 550).apply()
 
         //Logger.init().logLevel(if (BuildConfig.DEBUG) LogLevel.FULL else LogLevel.NONE)
         MMKV.initialize(this)
@@ -36,7 +36,7 @@ class AngApplication : MultiDexApplication(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
-            .setDefaultProcessName("${BuildConfig.APPLICATION_ID}:bg")
+            .setDefaultProcessName("com.v2ray.ang:bg")
             .build()
     }
 }
