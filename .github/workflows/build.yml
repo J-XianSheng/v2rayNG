@@ -61,8 +61,6 @@ jobs:
         chmod 777 *
         sed -i 's/org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8/org.gradle.jvmargs=-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8/' ${{ github.workspace }}/V2rayNG/gradle.properties
         ./gradlew assembleDebug
-        ls -l ${{ github.workspace }}/V2rayNG/app/build/outputs/aar/
-        ls -l ${{ github.workspace }}/V2rayNG/app/build/outputs/apk/debug/
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
